@@ -71,8 +71,8 @@ func (msg *GetParameterValues) CreateXML() ([]byte, error) {
 	}
 	getParam := getParameterValuesStruct{paramNames}
 	env.Body = getParameterValuesBodyStruct{getParam}
-	output, err := xml.MarshalIndent(env, "  ", "    ")
-	//output, err := xml.Marshal(env)
+	//output, err := xml.MarshalIndent(env, "  ", "    ")
+	output, err := xml.Marshal(env)
 	if err != nil {
 		return nil, err
 	}
