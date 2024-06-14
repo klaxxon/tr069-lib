@@ -73,8 +73,8 @@ func (msg *SetParameterValues) CreateXML() ([]byte, error) {
 		ParameterKey: msg.ParameterKey,
 	}
 	env.Body = setParameterValuesBodyStruct{setParam}
-	output, err := xml.MarshalIndent(env, "  ", "    ")
-	//output, err := xml.Marshal(env)
+	//output, err := xml.MarshalIndent(env, "  ", "    ")
+	output, err := xml.Marshal(env)
 	if err != nil {
 		return nil, err
 	}
