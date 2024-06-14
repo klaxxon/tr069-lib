@@ -96,8 +96,8 @@ func (msg *Fault) CreateXML() ([]byte, error) {
 		FaultDetail: detail,
 	}
 	env.Body = faultBodyStruct{fault}
-	output, err := xml.MarshalIndent(env, "  ", "    ")
-	//output, err := xml.Marshal(env)
+	//output, err := xml.MarshalIndent(env, "  ", "    ")
+	output, err := xml.Marshal(env)
 	if err != nil {
 		return nil, err
 	}
