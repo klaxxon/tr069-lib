@@ -101,6 +101,9 @@ func (msg *Download) CreateXML() ([]byte, error) {
 
 //Parse parse from xml
 func (msg *Download) Parse(doc *xmlx.Document) error {
-	//TODO
+	msg.ID = doc.SelectNode("*", "ID").GetValue()
+	msg.CommandKey = doc.SelectNode("*", "CommandKey").GetValue()
+	msg.FileType = doc.SelectNode("*", "FileType").GetValue()
+	msg.URL = doc.SelectNode("*", "URL").GetValue()
 	return nil
 }
