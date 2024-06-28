@@ -49,6 +49,13 @@ type downloadStruct struct {
 	FailureURL     string
 }
 
+func NewDownload() *Download {
+	download := new(Download)
+	download.ID = download.GetID()
+	download.Name = download.GetName()
+	return download
+}
+
 //GetID get download msg id(tr069 msg id)
 func (msg *Download) GetID() string {
 	if len(msg.ID) < 1 {
