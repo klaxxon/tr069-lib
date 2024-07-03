@@ -49,8 +49,8 @@ func (msg *DeleteObject) CreateXML() ([]byte, error) {
 	env.XmlnsCwmp = "urn:dslforum-org:cwmp-1-0"
 	id := IDStruct{Attr: "1", Value: msg.GetID()}
 	env.Header = HeaderStruct{ID: id, NoMore: msg.NoMore}
-	addObject := addObjectStruct{ObjectName: msg.ObjectName, ParameterKey: msg.ParameterKey}
-	env.Body = addObjectBodyStruct{addObject}
+	delObject := delObjectStruct{ObjectName: msg.ObjectName, ParameterKey: msg.ParameterKey}
+	env.Body = delObjectBodyStruct{delObject}
 	output, err := xml.Marshal(env)
 	if err != nil {
 		return nil, err
