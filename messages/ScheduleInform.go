@@ -4,6 +4,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"time"
+	"strconv"
 
 	xmlx "github.com/mattn/go-pkg-xmlx"
 )
@@ -68,6 +69,10 @@ func (msg *ScheduleInform) CreateXML() ([]byte, error) {
 
 //Parse decode from xml
 func (msg *ScheduleInform) Parse(doc *xmlx.Document) error {
-	//TODO
+	msg.ID = doc.SelectNode("*", "ID").GetValue()
+	delaySecs := doc.SelectNode("*", "DelaySeconds").GetValue()
+	d,_ := strconv.Atoi(delaySecs)
+	msg.Data.DelaySeconds = uint(d)
+	msg.Data.CommandKey = doc.SelectNode("*", "CommandKey").GetValue()
 	return nil
 }
