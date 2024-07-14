@@ -53,6 +53,9 @@ func ParseXML(data []byte) (msg Message, err error) {
 		case "TransferComplete":
 			msg = NewTransferComplete()
 			err = msg.Parse(doc)
+		case "GetRPCMethods":
+			msg = NewGetRPCMethods()
+			err = msg.Parse(doc)
 		case "GetRPCMethodsResponse":
 			msg = NewGetRPCMethodsResponse()
 			err = msg.Parse(doc)
